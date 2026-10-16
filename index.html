@@ -3,28 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fusion App</title>
+  <title>Fusion Social App</title>
   <style>
-    body { font-family: sans-serif; background: #000; color: #fff; margin: 0; text-align: center; }
-    .stories { display: flex; gap: 10px; padding: 10px; background: #111; overflow-x: auto; }
-    .story { width: 50px; height: 50px; border-radius: 50%; background: red; flex-shrink: 0; line-height: 50px; font-size: 10px; }
-    .card { height: 80vh; margin: 10px; background: #222; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #000; color: #fff; text-align: center; }
+
+    /* Top Stories Banner (Instagram style) */
+    .stories { display: flex; gap: 12px; padding: 12px; background: #111; overflow-x: auto; border-bottom: 1px solid #333; }
+    .story { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #bc1888); display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; font-weight: bold; }
+
+    /* Main Feed */
+    .feed { display: flex; flex-direction: column; align-items: center; padding: 15px; gap: 25px; }
+    .post-card { background: #1a1a1a; width: 100%; max-width: 420px; border-radius: 12px; padding: 12px; border: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+    .post-header { text-align: left; margin-bottom: 10px; font-weight: bold; color: #4af; font-size: 14px; }
+
+    /* Video Frame Styling */
+    .video-box { width: 100%; border-radius: 8px; overflow: hidden; background: #000; position: relative; }
+    
+    /* YouTube Box (16:9 Landscape) */
+    .youtube-box { padding-top: 56.25%; }
+    .youtube-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* TikTok Box (Vertical Scroll) */
+    .tiktok-box { height: 580px; }
+    .tiktok-box iframe { width: 100%; height: 100%; border: 0; }
+
+    /* Like & Comment Buttons (Facebook/Instagram Style) */
+    .actions { display: flex; justify-content: space-around; margin-top: 12px; padding-top: 10px; border-top: 1px solid #222; }
+    .btn { background: #262626; border: none; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 14px; cursor: pointer; }
+    .btn:active { background: #e1306c; }
   </style>
 </head>
 <body>
 
-  <!-- Instagram Style Stories -->
+  <!-- 1. Instagram Stories Banner -->
   <div class="stories">
-    <div class="story">You</div>
-    <div class="story">User 1</div>
-    <div class="story">User 2</div>
+    <div class="story">Your Story</div>
+    <div class="story">Alex</div>
+    <div class="story">Sarah</div>
+    <div class="story">John</div>
   </div>
 
-  <!-- TikTok / YouTube Style Feed -->
-  <div class="card">
-    <h2>▶️ TikTok / YouTube Feed Demo</h2>
+  <div class="feed">
+
+    <!-- 2. TikTok Short Video Post -->
+    <div class="post-card">
+      <div class="post-header">🎵 TikTok Short Video Feed</div>
+      <div class="video-box tiktok-box">
+        <!-- Real Connected TikTok Player URL -->
+        <iframe 
+          src="https://www.tiktok.com/player/v1/6718335390845095173" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="actions">
+        <button class="btn" onclick="alert('Liked!')">❤️ Like</button>
+        <button class="btn" onclick="alert('Comment box opening...')">💬 Comment</button>
+        <button class="btn" onclick="alert('Link copied!')">🔁 Share</button>
+      </div>
+    </div>
+
+    <!-- 3. YouTube Long Video Post -->
+    <div class="post-card">
+      <div class="post-header">📺 YouTube Video Feed</div>
+      <div class="video-box youtube-box">
+        <!-- Real Connected YouTube Player URL -->
+        <iframe 
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+          title="YouTube video player" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="actions">
+        <button class="btn" onclick="alert('Liked!')">❤️ Like</button>
+        <button class="btn" onclick="alert('Comment box opening...')">💬 Comment</button>
+        <button class="btn" onclick="alert('Link copied!')">🔁 Share</button>
+      </div>
+    </div>
+
   </div>
 
 </body>
 </html>
-
